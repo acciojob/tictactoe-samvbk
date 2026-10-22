@@ -5,8 +5,8 @@ const status = document.getElementById("status");
 const cells = document.querySelectorAll(".cell");
 const btn = document.getElementById("submit");
 
-let p1 = "p1";
-let p2 = "p2";
+let p1 = "";
+let p2 = "";
 let cp = "X";
 let bS = ["","","","","","","","",""];
 let gA = true;
@@ -32,10 +32,10 @@ btn.addEventListener('click',() =>{
 
 function updateTurnStatus() {
 	if (cp === "X") {
-		status.textContent = `${p1}, you're up`;
+		status.textContent = `${p1in}, you're up`;
 	}
 	else{
-		status.textContent = `${p2}, you're up`;
+		status.textContent = `${p2in}, you're up`;
 	}
 }
 
@@ -74,7 +74,7 @@ function checkResult() {
 	}
 
 	if (rW) {
-		const wN = cp ==="X" ? p1:p2;
+		const wN = cp ==="X" ? p1in:p2in;
 		status.textContent = `${wN} congratulations you won!`
 		gA = false;
 		return;
