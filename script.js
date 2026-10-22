@@ -14,6 +14,7 @@ let gA = true;
 const wC = [[0,1,2], [3, 4, 5], [6, 7, 8],[0, 3, 6], [1, 4, 7], [2, 5, 8],[0, 4, 8], [2, 4, 6]];
 
 btn.addEventListener('click',() =>{
+	e.preventDefault();
 	const p1in = document.getElementById("player-1").value.trim();
 	const p2in = document.getElementById("player-2").value.trim();
 
@@ -32,10 +33,10 @@ btn.addEventListener('click',() =>{
 
 function updateTurnStatus() {
 	if (cp === "X") {
-		status.textContent = `${p1in}, you're up`;
+		status.textContent = `${p1}, you're up`;
 	}
 	else{
-		status.textContent = `${p2in}, you're up`;
+		status.textContent = `${p2}, you're up`;
 	}
 }
 
@@ -43,7 +44,7 @@ cells.forEach(cell =>{
 	cell.addEventListener('click',(e) =>{
 		const index = e.target.getAttribute('data-index');
 
-		if (bS !== "" || !gA) {
+		if (bS[index] !== "" || !gA) {
 			return;
 		}
 
@@ -74,7 +75,7 @@ function checkResult() {
 	}
 
 	if (rW) {
-		const wN = cp ==="X" ? p1in:p2in;
+		const wN = cp ==="X" ? p1:p2;
 		status.textContent = `${wN} congratulations you won!`
 		gA = false;
 		return;
