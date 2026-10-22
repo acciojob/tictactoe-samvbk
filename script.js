@@ -25,7 +25,7 @@ btn.addEventListener('click',() =>{
 	}
 
 	setup.classList.add("hidden");
-	game.classList.remover("hidden");
+	game.classList.remove("hidden");
 
 	updateTurnStatus();
 });
